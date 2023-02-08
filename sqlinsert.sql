@@ -1,0 +1,1 @@
+INSERT INTO (name,username,phone,password,photo,latitude,longitude)VALUES(?,?,?,?,?,?,?)

@@ -1,0 +1,1 @@
+INSERT INTO user(password,photo,latitude,longitude)VALUES(?,?,?,?)
