@@ -1,1 +1,1 @@
-INSERT INTO user(password,photo,latitude,longitude)VALUES(?,?,?,?)
+INSERT INTO payment(id,order_id,transaction_id,payment_type,payment_method,payment_status,amount,admin_fee,device_i_d,msisdn_sender,msisdn_receiver,product_name,billing_number,purchase_mode)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)

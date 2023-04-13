@@ -6,6 +6,7 @@ import (
 	"os"
 	"reflect"
 	"strings"
+	"time"
 	"unicode"
 )
 
@@ -19,7 +20,23 @@ type UserRequestCreate struct {
 	Latitude  float64 `json:"latitude" `
 	Longitude float64 `json:"longitude" `
 }
-
+type Payment struct {
+	Id             string    `json:"id"`
+	OrderId        string    `json:"order_id"`
+	TransactionId  string    `json:"transaction_id"`
+	PaymentType    string    `json:"payment_type"`
+	PaymentMethod  string    `json:"payment_method"`
+	PaymentStatus  string    `json:"payment_status"`
+	Amount         int       `json:"amount"`
+	AdminFee       int       `json:"admin_fee"`
+	DeviceID       string    `json:"device_id"`
+	MsisdnSender   string    `json:"msisdn_sender"`
+	MsisdnReceiver string    `json:"msisdn_receiver"`
+	ProductName    string    `json:"product_name"`
+	BillingNumber  string    `json:"billing_number"`
+	PurchaseMode   string    `json:"purchase_mode"`
+	CreatedAt      time.Time `json:"created_at" test:"-"`
+}
 type Base struct {
 	id   int
 	name string
@@ -50,7 +67,8 @@ func main() {
 	fmt.Println("hallp")
 	// getPropertyInfo(&UserRequestCreate{})
 	// generateQueryInsert(&UserRequestCreate{})
-	generateQueryInsert(&UserRequestCreate{}, "query_insert", "user")
+	// generateQueryInsert(&UserRequestCreate{}, "query_insert", "user")
+	generateQueryInsert(&Payment{}, "query_insert", "payment")
 
 	var data2 interface{}
 	GetFile("", "query_insert", "go", &data2)
