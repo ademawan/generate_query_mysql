@@ -286,3 +286,23 @@ func GetFile(baseDir, fileName, ext string, data *interface{}) {
 	*data = string(byteValue)
 
 }
+
+func checkTypeOf(x interface{}) {
+	var reflectValue = reflect.ValueOf(x)
+
+	if reflectValue.Kind() == reflect.Ptr {
+		reflectValue = reflectValue.Elem()
+	}
+
+	var reflectType = reflectValue.Type()
+
+	for i := 0; i < reflectValue.NumField(); i++ {
+		f, _ := reflectType.FieldByName("Email")
+		fmt.Println(f.Tag)
+		fmt.Println(f.Tag.Lookup("test"))
+		fmt.Println("nama      :", reflectType.Field(i).Name)
+		fmt.Println("tipe data :", reflectType.Field(i).Type)
+		fmt.Println("nilai     :", reflectValue.Field(i).Interface())
+		fmt.Println("")
+	}
+}
